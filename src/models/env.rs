@@ -29,7 +29,8 @@ pub struct EnvStep {
 pub trait Env<ES> {
     #[cfg(not(feature = "js"))]
     fn get_assets(
-        &self
+        &self,
+        path: &String
     ) -> HashMap::<AssetRef, Asset>;
     
     fn get_num_actions(

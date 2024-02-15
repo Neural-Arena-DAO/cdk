@@ -1,11 +1,21 @@
+#[cfg(feature = "js")]
+use wasm_bindgen::prelude::*;
 use std::collections::HashMap;
-
 use candid::CandidType;
 use serde::{Serialize, Deserialize};
 
 pub type AssetRef = usize;
-pub type AssetType = usize;
 pub type AssetKey = String;
+
+#[repr(usize)]
+#[cfg_attr(feature = "js", wasm_bindgen)]
+#[derive(PartialEq, Clone, Debug, Serialize, Deserialize, CandidType)]
+pub enum AssetType {
+    Level   = 0,
+    Player  = 1,
+    Npc     = 2,
+    Object  = 3,
+}
 
 #[derive(Clone, Debug, Serialize, Deserialize, CandidType)]
 pub enum AssetValue {
