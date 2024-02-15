@@ -8,13 +8,6 @@ pub type InstanceId = String;
 pub type InstanceOptions = HashMap<String, String>;
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
-pub struct InstanceCreateResponse {
-    pub instance_id: InstanceId,
-    pub min_players: usize,
-    pub max_players: usize,
-}
-
-#[derive(Clone, Serialize, Deserialize, CandidType)]
 pub struct InstanceAssetsResponse {
     pub assets: HashMap::<AssetRef, Asset>,
 }

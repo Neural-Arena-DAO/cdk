@@ -50,8 +50,8 @@ extern "C" {
     pub fn change_model_state(
         this: &JsRenderer,
         model_ref: ModelRef,
-        from: u32,
-        to: u32
+        from: String,
+        to: String
     );
 
     #[wasm_bindgen(method)]

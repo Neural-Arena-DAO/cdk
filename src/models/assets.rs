@@ -7,9 +7,9 @@ use serde::{Serialize, Deserialize};
 pub type AssetRef = usize;
 pub type AssetKey = String;
 
-#[repr(usize)]
 #[cfg_attr(feature = "js", wasm_bindgen)]
 #[derive(PartialEq, Clone, Debug, Serialize, Deserialize, CandidType)]
+#[repr(usize)]
 pub enum AssetType {
     Level   = 0,
     Player  = 1,
