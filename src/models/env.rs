@@ -83,15 +83,6 @@ pub trait Env<ES> {
         renderer: JsRenderer
     );
 
-    fn serialize_entities(
-        &self
-    ) -> Result<Vec<u8>, String>;
-	
-    fn deserialize_entities(
-        &mut self, 
-        buf: &Vec<u8>
-    ) -> Result<(), String>;
-
     fn serialize_events(
         &self
     ) -> Result<Vec<u8>, String>;
