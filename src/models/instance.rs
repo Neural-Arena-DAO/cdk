@@ -1,5 +1,5 @@
 use std::collections::HashMap;
-use candid::CandidType;
+use candid::{CandidType, Principal};
 use serde::{Serialize, Deserialize};
 use super::assets::{Asset, AssetRef};
 
@@ -22,4 +22,10 @@ pub struct InstanceStep {
 #[derive(Clone, Serialize, Deserialize, CandidType)]
 pub struct InstanceStepsResponse {
     pub steps: Vec<InstanceStep>,
+}
+
+#[derive(Clone, Serialize, Deserialize, CandidType)]
+pub struct InstanceRunResponse {
+    pub won_at: Option<u64>,
+    pub won_by: Option<Principal>,
 }
