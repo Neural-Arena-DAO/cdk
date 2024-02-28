@@ -3,5 +3,9 @@ pub mod env;
 pub mod game;
 pub mod instance;
 pub mod renderer;
+pub mod player;
+pub mod nas1_types;
+pub mod icrc7_types;
+pub mod nft;
 #[cfg(feature = "js")]
 pub mod js_renderer;
