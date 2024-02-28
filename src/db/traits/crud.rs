@@ -35,11 +35,25 @@ pub trait Crud<TN, K, V>
        self.get_data().0.get(k)
     }
 
+    fn find_by_id_mut<'a>(
+        &'a mut self,
+        k: &'a K
+    ) -> Option<&'a mut V> {
+       self.get_data_mut().0.get_mut(k)
+    }
+
     fn get<'a>(
         &'a self,
         k: &'a K
     ) -> &'a V {
         self.get_data().0.get(k).unwrap()
+    }
+
+    fn get_mut<'a>(
+        &'a mut self,
+        k: &'a K
+    ) -> &'a mut V {
+        self.get_data_mut().0.get_mut(k).unwrap()
     }
 
     fn update(

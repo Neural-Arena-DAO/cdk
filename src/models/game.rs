@@ -9,6 +9,8 @@ pub struct GameInfo {
     pub category: String,
     pub min_players: usize,
     pub max_players: usize,
+    pub skills: Vec<String>,
+    pub animations: Vec<String>,
     pub assets_url: String,
     pub engine_wasm_url: String,
     pub image_url: String,
