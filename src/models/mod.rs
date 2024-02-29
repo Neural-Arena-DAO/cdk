@@ -1,5 +1,5 @@
 pub mod assets;
-#[cfg(feature = "rand")]
+#[cfg(feature = "random")]
 pub mod env;
 pub mod game;
 pub mod instance;
