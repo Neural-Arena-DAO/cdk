@@ -9,14 +9,13 @@ crate-type = ["cdylib", "rlib"]
 [dependencies]
 candid = "0.10.3"
 ic-cdk = {version = "0.12.1", optional = true}
-icrc-ledger-types = "0.1.5"
 serde = "1.0.190"
 serde_json = "1.0.108"
 rmp-serde = "1.1.2"
-rand = "=0.8.5"
+rand = {version = "=0.8.5", optional = true}
 ulid = {version = "=1.1.0", features = [], default-features = false, optional = true}
 wasm-bindgen = {version = "0.2.84", optional = true}
-three-rs = {version = "0.1.0", path = "../three-rs", features = []}
+three-rs = {version = "0.1.0", path = "../three-rs", features = [], optional = true}
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 getrandom = {version = "=0.2.12", features = ["custom"], optional = true}
@@ -32,10 +31,11 @@ codegen-units = 1
 
 [features]
 cppmalloc = []
-random = ["dep:ic-cdk", "dep:getrandom"]
+random = ["dep:ic-cdk", "dep:rand", "dep:getrandom"]
 uniqueid = ["dep:ulid", "random"]
 serdeser = ["dep:ic-cdk"]
 db = ["serdeser"]
 nn = []
 js = ["dep:wasm-bindgen"]
-default = []
+three = ["dep:three-rs"]
+default = ["three"]

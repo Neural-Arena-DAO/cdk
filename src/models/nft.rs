@@ -1,6 +1,6 @@
 use candid::{CandidType, Principal};
 use serde::{Deserialize, Serialize};
-use super::nas1_types::Nas1Collection;
+use super::nas1_types::{Nas1Collection, Nas1Token};
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
 pub enum NftStandard {
@@ -12,6 +12,7 @@ pub struct Nft {
     pub std: NftStandard, 
     pub canister_id: Principal,
     pub token_id: u128,
-    pub info: Nas1Collection,
+    pub collection_data: Nas1Collection,
+    pub token_data: Nas1Token,
 }
 

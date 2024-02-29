@@ -1,7 +1,9 @@
 pub mod assets;
+#[cfg(feature = "rand")]
 pub mod env;
 pub mod game;
 pub mod instance;
+#[cfg(feature = "three")]
 pub mod renderer;
 pub mod player;
 pub mod nas1_types;

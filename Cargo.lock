@@ -21,12 +21,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
 
 [[package]]
-name = "base32"
-version = "0.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "23ce669cd6c8588f79e15cf450314f9638f967fc5770ff1c7c1deb0925ea7cfa"
-
-[[package]]
 name = "binread"
 version = "2.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -244,23 +238,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "icrc-ledger-types"
-version = "0.1.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "804c892bf95652101660a25cea10f059f73eb8973f6b04e0349758fda1190447"
-dependencies = [
- "base32",
- "candid",
- "crc32fast",
- "hex",
- "num-bigint",
- "num-traits",
- "serde",
- "serde_bytes",
- "sha2",
-]
-
-[[package]]
 name = "itoa"
 version = "1.0.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -297,7 +274,6 @@ dependencies = [
  "candid",
  "getrandom",
  "ic-cdk",
- "icrc-ledger-types",
  "rand",
  "rmp-serde",
  "serde",
