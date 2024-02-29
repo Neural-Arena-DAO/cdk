@@ -16,3 +16,13 @@ pub struct Nft {
     pub token_data: Nas1Token,
 }
 
+impl PartialEq for Nft {
+    fn eq(
+        &self, 
+        other: &Self
+    ) -> bool {
+        self.canister_id == other.canister_id && 
+        self.token_id == other.token_id
+    }
+}
+

@@ -96,8 +96,11 @@ impl Nas1Value {
 
 #[derive(Clone, CandidType, Serialize, Deserialize)]
 pub struct Nas1Token {
+    pub name: String,
+    pub image_url: String,
     pub xp: usize,
     pub model: String,
+    pub model_url: String,
     pub height: f32,
     pub radius: f32,
     pub epsilon: f32,
