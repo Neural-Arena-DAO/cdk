@@ -127,37 +127,3 @@ impl Default for Nas1Collection {
         }
     }
 }
-
-#[derive(Serialize, Clone)]
-pub enum CanisterCallMode {
-    Query,
-    Update,
-}
-
-#[derive(Serialize, Clone)]
-pub struct CanisterCall {
-    pub canister_id: String,
-    pub method: String,
-    pub mode: CanisterCallMode,
-    pub args: Vec<Nas1Value>
-}
-
-impl Nas1Collection {
-    pub fn build_canister_call(
-        &self,
-        path: String
-    ) -> CanisterCall {
-        CanisterCall{
-            canister_id: self.assets_canister_id.to_string(),
-            method: "get".to_string(),
-            mode: CanisterCallMode::Query,
-            args: vec![
-                Nas1Value::Text(path),
-                Nas1Value::Array(vec![
-                    Nas1Value::Text("identity".to_string()),
-                ])
-            ],
-        }
-    }
-}
-

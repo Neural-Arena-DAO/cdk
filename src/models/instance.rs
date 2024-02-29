@@ -1,11 +1,17 @@
 use std::collections::HashMap;
 use candid::{CandidType, Principal};
 use serde::{Serialize, Deserialize};
-use super::assets::{Asset, AssetRef};
+use super::{assets::{Asset, AssetRef}, player::Player};
 
 pub type InstanceId = String;
 
 pub type InstanceOptions = HashMap<String, String>;
+
+#[derive(Clone, Serialize, Deserialize, CandidType)]
+pub struct InstancePlayer {
+    pub player: Player,
+    pub tensors: HashMap<String, Vec<u8>>,
+}
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
 pub struct InstanceAssetsResponse {
