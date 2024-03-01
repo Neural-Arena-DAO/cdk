@@ -5,7 +5,6 @@ pub mod game;
 pub mod instance;
 #[cfg(feature = "three")]
 pub mod renderer;
-pub mod player;
 pub mod nas1_types;
 pub mod icrc7_types;
 pub mod nft;

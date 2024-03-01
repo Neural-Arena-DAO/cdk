@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use candid::{CandidType, Principal};
 use serde::{Serialize, Deserialize};
-use super::{assets::{Asset, AssetRef}, nft::Nft};
+use super::{assets::{Asset, AssetRef}, nas1_types::Nas1Token, nft::NftCollectionMetadata};
 
 pub type InstanceId = String;
 
@@ -10,7 +10,8 @@ pub type InstanceOptions = HashMap<String, String>;
 #[derive(Clone, Serialize, Deserialize, CandidType)]
 pub struct InstancePlayer {
     pub id: Principal,
-    pub nft: Nft,
+    pub nft_col: NftCollectionMetadata,
+    pub nft: Nas1Token,
     pub tensors: HashMap<String, Vec<u8>>,
 }
 
