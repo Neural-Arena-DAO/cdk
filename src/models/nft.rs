@@ -2,9 +2,9 @@ use candid::{CandidType, Principal};
 use serde::{Deserialize, Serialize};
 use super::nas1_types::{Nas1Collection, Nas1Token};
 
-#[derive(Clone, Serialize, Deserialize, CandidType)]
+#[derive(Clone, PartialEq, Serialize, Deserialize, CandidType)]
 pub enum NftStandard {
-    ICRC1,
+    ICRC7,
 }
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
