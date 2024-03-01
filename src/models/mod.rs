@@ -7,6 +7,7 @@ pub mod instance;
 pub mod renderer;
 pub mod nas1_types;
 pub mod icrc7_types;
+pub mod ic_asset_types;
 pub mod nft;
 #[cfg(feature = "js")]
 pub mod js_renderer;
