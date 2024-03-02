@@ -30,7 +30,8 @@ pub trait Env<ES> {
     #[cfg(not(feature = "js"))]
     fn get_assets(
         &self,
-        path: &String
+        path: &String,
+        players: &Vec<super::instance::InstancePlayer>
     ) -> HashMap::<AssetRef, Asset>;
     
     fn get_num_actions(
