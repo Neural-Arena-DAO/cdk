@@ -39,9 +39,11 @@ pub fn get(
 //
 // allow random on wasm32-unknown-unknown
 //
+#[cfg(target = "wasm32")]
 fn always_fail(_buf: &mut [u8]) -> Result<(), getrandom::Error> {
     Err(getrandom::Error::UNSUPPORTED)
 }
 
+#[cfg(target = "wasm32")]
 getrandom::register_custom_getrandom!(always_fail);
 
