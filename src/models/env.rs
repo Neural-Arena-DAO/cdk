@@ -31,7 +31,7 @@ pub trait Env<ES> {
     fn get_assets(
         &self,
         path: &String,
-        players: &Vec<super::instance::InstancePlayer>
+        players_paths: &Vec<String>
     ) -> HashMap::<AssetRef, Asset>;
     
     fn get_num_actions(
