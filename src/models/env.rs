@@ -7,6 +7,8 @@ use super::{
     renderer::Renderer,
     assets::{Asset, AssetRef}
 };
+#[cfg(not(feature = "js"))]
+use crate::models::game::GameMapId;
 #[cfg(feature = "js")]
 use super::js_renderer::JsRenderer;
 
@@ -31,6 +33,7 @@ pub trait Env<ES> {
     fn get_assets(
         &self,
         path: &String,
+        map_id: GameMapId,
         players_paths: &Vec<String>
     ) -> HashMap::<AssetRef, Asset>;
     
