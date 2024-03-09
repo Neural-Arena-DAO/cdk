@@ -32,3 +32,10 @@ pub struct GameInfo {
 pub struct GameInfoResponse {
     pub info: GameInfo,
 }
+
+#[derive(Clone, Serialize, Deserialize, CandidType)]
+pub struct GameEndCredits {
+    pub title: String,
+    pub people: Vec<(String, String)>,
+    pub sub: Vec<GameEndCredits>,
+}
