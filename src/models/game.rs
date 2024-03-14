@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use candid::CandidType;
 use serde::{Serialize, Deserialize};
 
@@ -13,18 +15,24 @@ pub struct GameMap {
 }
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
+pub struct GameURLs {
+    pub cover: String,
+    pub engine_wasm: String,
+    pub assets: String,
+    pub scenes: HashMap<String, String>,
+}
+
+#[derive(Clone, Serialize, Deserialize, CandidType)]
 pub struct GameInfo {
     pub name: String,
     pub description: String,
     pub version: f32,
     pub category: String,
-    pub image_url: String,
     pub min_players: usize,
     pub max_players: usize,
+    pub urls: GameURLs,
     pub skills: Vec<String>,
     pub animations: Vec<String>,
-    pub engine_wasm_url: String,
-    pub assets_url: String,
     pub maps: Vec<GameMap>,
 }
 
