@@ -37,10 +37,12 @@ pub trait Env<ES> {
         players_paths: &Vec<String>
     ) -> HashMap::<AssetRef, Asset>;
     
+    #[cfg(not(feature = "js"))]
     fn get_num_actions(
         &self
     ) -> usize;
     
+    #[cfg(not(feature = "js"))]
     fn get_num_obs(
         &self
     ) -> usize;
@@ -86,11 +88,24 @@ pub trait Env<ES> {
         renderer: JsRenderer
     );
 
+    #[cfg(not(feature = "js"))]
     fn serialize_events(
         &self
     ) -> Result<Vec<u8>, String>;
 	
+    #[cfg(feature = "js")]
     fn deserialize_events(
+        &mut self, 
+        buf: &Vec<u8>
+    ) -> Result<(), String>;
+
+    #[cfg(not(feature = "js"))]
+    fn serialize_entities(
+        &self
+    ) -> Result<Vec<u8>, String>;
+	
+    #[cfg(feature = "js")]
+    fn deserialize_entities(
         &mut self, 
         buf: &Vec<u8>
     ) -> Result<(), String>;

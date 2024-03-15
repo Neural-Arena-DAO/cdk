@@ -1,4 +1,5 @@
 use wasm_bindgen::prelude::*;
+use super::instance::{InstancePlayerEntity, InstanceNpcEntity};
 use super::renderer::ModelRef;
 use super::assets::AssetRef;
 
@@ -52,6 +53,18 @@ extern "C" {
         model_ref: ModelRef,
         from: String,
         to: String
+    );
+
+    #[wasm_bindgen(method)]
+    pub fn set_players(
+        this: &JsRenderer,
+        players: Vec<InstancePlayerEntity>
+    );
+
+    #[wasm_bindgen(method)]
+    pub fn set_npcs(
+        this: &JsRenderer,
+        npcs: Vec<InstanceNpcEntity>
     );
 
     #[wasm_bindgen(method)]
