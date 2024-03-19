@@ -14,11 +14,19 @@ pub type InstanceId = String;
 pub type InstanceOptions = HashMap<String, String>;
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
+pub struct InstancePlayerState {
+    pub active: bool,
+    pub last_thought: usize,
+    pub obs: Vec<f32>,
+}
+
+#[derive(Clone, Serialize, Deserialize, CandidType)]
 pub struct InstancePlayer {
     pub id: Principal,
     pub nft_col: NftCollectionMetadata,
     pub nft: Nas1Token,
     pub tensors: HashMap<String, Vec<u8>>,
+    pub state: InstancePlayerState,
 }
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
@@ -28,8 +36,6 @@ pub struct InstanceAssetsResponse {
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
 pub struct InstanceStep {
-    pub terminated: bool,
-    pub timedout: bool,
     pub events: Vec<u8>,
     pub entities: Vec<u8>,
 }
@@ -65,7 +71,15 @@ pub struct InstanceStepsResponse {
 }
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
+pub struct InstanceRunRequest {
+    pub max_instructions: u64,
+}
+
+#[derive(Clone, Serialize, Deserialize, CandidType)]
 pub struct InstanceRunResponse {
+    pub terminated: bool,
+    pub timedout: bool,
+    pub steps: usize,
     pub won_at: Option<u64>,
     pub won_by: Option<Principal>,
 }
