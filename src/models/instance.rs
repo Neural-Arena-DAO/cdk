@@ -72,7 +72,15 @@ pub struct InstanceStepsResponse {
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
 pub struct InstanceRunRequest {
+    pub slice: usize,
+    pub seed: u64,
     pub max_instructions: u64,
+}
+
+#[derive(Clone, Serialize, Deserialize, CandidType)]
+pub struct InstanceRunSlice {
+    pub first_step: usize,
+    pub seed: u64,
 }
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
