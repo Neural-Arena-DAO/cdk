@@ -23,7 +23,6 @@ pub struct EnvPlayer {
 
 pub struct EnvStep {
     pub terminated: bool,
-    pub timedout: bool,
     pub winner: Option<usize>,
     pub players: Vec<EnvPlayer>,
 }

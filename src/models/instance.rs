@@ -82,6 +82,7 @@ pub struct InstanceRunRequest {
     pub slice: usize,
     pub seed: u64,
     pub max_instructions: u64,
+    pub max_steps: usize,
 }
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
