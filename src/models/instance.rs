@@ -21,10 +21,17 @@ pub struct InstancePlayerState {
 }
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
+pub struct InstancePlayerNft {
+    pub collection_id: Principal,
+    pub token_id: u128,
+    pub props: Nas1Token,
+}
+
+#[derive(Clone, Serialize, Deserialize, CandidType)]
 pub struct InstancePlayer {
     pub id: Principal,
     pub nft_col: NftCollectionMetadata,
-    pub nft: Nas1Token,
+    pub nft: InstancePlayerNft,
     pub tensors: HashMap<String, Vec<u8>>,
     pub state: InstancePlayerState,
 }
