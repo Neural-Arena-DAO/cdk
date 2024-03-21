@@ -17,6 +17,8 @@ pub type InstanceOptions = HashMap<String, String>;
 pub struct InstancePlayerState {
     pub active: bool,
     pub last_thought: usize,
+    pub score: f32,
+    pub health: f32,
     pub obs: Vec<f32>,
 }
 
@@ -96,6 +98,7 @@ pub struct InstanceRunResponse {
     pub terminated: bool,
     pub timedout: bool,
     pub steps: usize,
+    pub players: Vec<InstancePlayerEntity>,
     pub won_at: Option<u64>,
     pub won_by: Option<Principal>,
 }

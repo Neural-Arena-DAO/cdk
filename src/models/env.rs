@@ -62,7 +62,7 @@ pub trait Env<ES> {
     #[cfg(not(feature = "js"))]
     fn step(
         &mut self, 
-        actions: &Vec<Option<EnvAction>>, 
+        actions: &Vec<(usize, Option<EnvAction>)>, 
         delta_time: f32,
         renderer: &mut dyn Renderer<ES>,
         rng: &mut StdRng,
