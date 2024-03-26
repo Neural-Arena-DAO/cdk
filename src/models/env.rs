@@ -78,13 +78,14 @@ pub trait Env<ES> {
     fn render(
         &mut self,
         renderer: &mut dyn Renderer<ES>,
-        events_only: bool
+        delta_time: f32
     );
 
     #[cfg(feature = "js")]
     fn render(
         &mut self,
-        renderer: JsRenderer
+        renderer: JsRenderer,
+        delta_time: f32
     );
 
     #[cfg(not(feature = "js"))]

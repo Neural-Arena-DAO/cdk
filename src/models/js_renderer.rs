@@ -68,6 +68,12 @@ extern "C" {
     );
 
     #[wasm_bindgen(method)]
+    pub fn update(
+        this: &JsRenderer,
+        delta_time: f32
+    );
+
+    #[wasm_bindgen(method)]
     pub fn render(
         this: &JsRenderer
     );

@@ -80,6 +80,11 @@ pub trait Renderer<ES> {
         to: ES
     );
 
+    fn update(
+        &mut self,
+        delta_time: f32
+    );
+
     fn render(
         &mut self
     );

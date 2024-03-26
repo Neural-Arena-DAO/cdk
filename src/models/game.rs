@@ -28,6 +28,7 @@ pub struct GameInfo {
     pub description: String,
     pub version: f32,
     pub category: String,
+    pub fps: u32,
     pub min_players: usize,
     pub max_players: usize,
     pub urls: GameURLs,
