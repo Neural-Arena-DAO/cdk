@@ -23,6 +23,17 @@ pub struct GameURLs {
 }
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
+pub enum GameCost {
+    USD(u64),
+    ICP(u128),
+}
+
+#[derive(Clone, Serialize, Deserialize, CandidType)]
+pub struct GameCosts {
+    pub to_play: GameCost,
+}
+
+#[derive(Clone, Serialize, Deserialize, CandidType)]
 pub struct GameInfo {
     pub name: String,
     pub description: String,
@@ -31,6 +42,7 @@ pub struct GameInfo {
     pub fps: u32,
     pub min_players: usize,
     pub max_players: usize,
+    pub costs: GameCosts,
     pub urls: GameURLs,
     pub skills: Vec<String>,
     pub animations: Vec<String>,
