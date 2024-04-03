@@ -24,6 +24,8 @@ pub enum AssetValue {
     U32(u32),
     F32(f32),
     Text(String),
+    Vec(Vec<AssetValue>),
+    Map(HashMap<String, AssetValue>),
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize, CandidType)]

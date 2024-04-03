@@ -101,6 +101,7 @@ pub struct Nas1Token {
     pub xp: usize,
     pub model: String,
     pub model_url: String,
+    pub sfx_set: usize,
     pub height: f32,
     pub radius: f32,
     pub epsilon: f32,
@@ -112,12 +113,21 @@ pub struct Nas1Token {
 }
 
 #[derive(Clone, CandidType, Serialize, Deserialize)]
+pub struct Nas1Sfx {
+    pub url: String,
+    pub repeat: bool,
+    pub rate: Option<f32>,
+    pub detune: Option<f32>,
+}
+
+#[derive(Clone, CandidType, Serialize, Deserialize)]
 pub struct Nas1Collection {
     pub version: f32,
     pub assets_canister_id: Principal,
     pub assets_url: String,
-    pub animations: Vec<String>,
+    pub states: Vec<String>,
     pub skills: Vec<String>,
+    pub sfx_sets: Vec<HashMap<String, Nas1Sfx>>,
 }
 
 impl Default for Nas1Collection {
@@ -126,8 +136,9 @@ impl Default for Nas1Collection {
             version: 0.0,
             assets_canister_id: Principal::anonymous(), 
             assets_url: Default::default(),
-            animations: vec![],
+            states: vec![],
             skills: vec![],
+            sfx_sets: vec![],
         }
     }
 }

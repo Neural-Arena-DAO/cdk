@@ -5,7 +5,9 @@ use rand::rngs::StdRng;
 #[cfg(not(feature = "js"))]
 use super::{
     renderer::Renderer,
-    assets::{Asset, AssetRef}
+    assets::{Asset, AssetRef},
+    instance::InstancePlayer,
+    game::GameSfx
 };
 #[cfg(not(feature = "js"))]
 use crate::models::game::GameMapId;
@@ -33,7 +35,8 @@ pub trait Env<ES> {
         &self,
         path: &String,
         map_id: GameMapId,
-        players_paths: &Vec<String>
+        players: &Vec<Option<&InstancePlayer>>,
+        game_sfx_sets: Option<&Vec<HashMap<String, GameSfx>>>
     ) -> HashMap::<AssetRef, Asset>;
     
     #[cfg(not(feature = "js"))]

@@ -1,5 +1,4 @@
 use std::collections::HashMap;
-
 use candid::CandidType;
 use serde::{Serialize, Deserialize};
 
@@ -12,6 +11,7 @@ pub struct GameMap {
     pub description: String,
     pub version: f32,
     pub image_url: String,
+    pub music_url: String,
 }
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
@@ -34,6 +34,14 @@ pub struct GameCosts {
 }
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
+pub struct GameSfx {
+    pub url: String,
+    pub repeat: bool,
+    pub rate: Option<f32>,
+    pub detune: Option<f32>,
+}
+
+#[derive(Clone, Serialize, Deserialize, CandidType)]
 pub struct GameInfo {
     pub name: String,
     pub description: String,
@@ -45,7 +53,8 @@ pub struct GameInfo {
     pub costs: GameCosts,
     pub urls: GameURLs,
     pub skills: Vec<String>,
-    pub animations: Vec<String>,
+    pub states: Vec<String>,
+    pub sfx_sets: Vec<HashMap::<String, GameSfx>>,
     pub maps: Vec<GameMap>,
 }
 
