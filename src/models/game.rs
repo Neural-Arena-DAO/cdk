@@ -21,11 +21,17 @@ pub struct GameMap {
 }
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
+pub struct GameSceneURLs {
+    pub model: String,
+    pub music: Option<String>,
+}
+
+#[derive(Clone, Serialize, Deserialize, CandidType)]
 pub struct GameURLs {
     pub cover: String,
     pub engine_wasm: String,
     pub assets: String,
-    pub scenes: HashMap<String, String>,
+    pub scenes: HashMap<String, GameSceneURLs>,
 }
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
