@@ -5,10 +5,17 @@ use serde::{Serialize, Deserialize};
 pub type GameMapId = usize;
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
+pub struct GameMapMusicUrls {
+    pub main: String,
+    pub victory: String,
+    pub over: String,
+}
+
+#[derive(Clone, Serialize, Deserialize, CandidType)]
 pub struct GameMapUrls {
     pub model: String,
     pub image: String,
-    pub music: String,
+    pub music: GameMapMusicUrls,
 }
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
