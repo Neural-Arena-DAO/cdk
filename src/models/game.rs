@@ -43,8 +43,8 @@ pub struct GameURLs {
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
 pub enum GameCost {
-    USD(u64),
-    ICP(u128),
+    USD(u64),           // in e8s (* 100_000_000)
+    ICP(u128),          // in e8s (* 100_000_000)
 }
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
@@ -59,10 +59,15 @@ pub struct GameSfx {
     pub rate: Option<f32>,
     pub detune: Option<f32>,
 }
+#[derive(Clone, Serialize, Deserialize, CandidType)]
+pub struct GameRewards {
+    pub winner: u128,   // in e2s (* 100)
+}
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
 pub struct GameInfo {
     pub name: String,
+    pub subtitle: String,
     pub description: String,
     pub version: f32,
     pub category: String,
@@ -70,6 +75,7 @@ pub struct GameInfo {
     pub min_players: usize,
     pub max_players: usize,
     pub costs: GameCosts,
+    pub rewards: GameRewards,
     pub urls: GameURLs,
     pub skills: Vec<String>,
     pub states: Vec<String>,

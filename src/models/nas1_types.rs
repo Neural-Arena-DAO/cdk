@@ -123,6 +123,7 @@ pub struct Nas1Sfx {
 #[derive(Clone, CandidType, Serialize, Deserialize)]
 pub struct Nas1Collection {
     pub version: f32,
+    pub subtitle: String,
     pub assets_canister_id: Principal,
     pub assets_url: String,
     pub states: Vec<String>,
@@ -134,6 +135,7 @@ impl Default for Nas1Collection {
     fn default() -> Self {
         Self { 
             version: 0.0,
+            subtitle: "".to_string(),
             assets_canister_id: Principal::anonymous(), 
             assets_url: Default::default(),
             states: vec![],
