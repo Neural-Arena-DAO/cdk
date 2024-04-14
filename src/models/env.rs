@@ -51,6 +51,7 @@ pub trait Env<ES> {
     #[cfg(not(feature = "js"))]
     fn reset(
         &mut self, 
+        players: &Vec<InstancePlayer>,
         renderer: &mut dyn Renderer<ES>,
         rng: &mut StdRng
     ) -> Vec<EnvObs>;
