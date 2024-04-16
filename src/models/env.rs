@@ -17,6 +17,13 @@ use super::js_renderer::JsRenderer;
 pub type EnvObs = Vec<f32>;
 pub type EnvAction = usize;
 
+#[cfg(not(feature = "js"))]
+pub struct EnvPlayerOptions {
+    pub radius: f32,
+    pub height: f32,
+    pub xp: u32,
+}
+
 pub struct EnvPlayer {
     pub active: bool,
     pub reward: f32,
@@ -51,7 +58,7 @@ pub trait Env<ES> {
     #[cfg(not(feature = "js"))]
     fn reset(
         &mut self, 
-        players: &Vec<InstancePlayer>,
+        players: &Vec<EnvPlayerOptions>,
         renderer: &mut dyn Renderer<ES>,
         rng: &mut StdRng
     ) -> Vec<EnvObs>;

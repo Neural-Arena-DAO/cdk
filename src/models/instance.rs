@@ -19,6 +19,7 @@ pub struct InstancePlayerState {
     pub last_thought: usize,
     pub score: f32,
     pub health: f32,
+    pub xp: u32,
     pub obs: Vec<f32>,
 }
 
@@ -26,7 +27,7 @@ pub struct InstancePlayerState {
 pub struct InstancePlayerNft {
     pub collection_id: Principal,
     pub token_id: u128,
-    pub props: Nas1Token,
+    pub props: Option<Nas1Token>,
 }
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
@@ -54,6 +55,7 @@ pub struct InstanceStep {
 pub struct InstancePlayerEntity {
     pub health: f32,
     pub score: f32,
+    pub xp: u32,
 }
 
 #[cfg_attr(feature = "js", wasm_bindgen)]

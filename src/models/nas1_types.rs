@@ -95,10 +95,19 @@ impl Nas1Value {
 }
 
 #[derive(Clone, CandidType, Serialize, Deserialize)]
+pub struct Nas1TokenGameProps {
+    pub xp: u32,
+}
+
+#[derive(Clone, CandidType, Serialize, Deserialize)]
+pub struct Nas1TokenGameDeltaProps {
+    pub delta_xp: i32,
+}
+
+#[derive(Clone, CandidType, Serialize, Deserialize)]
 pub struct Nas1Token {
     pub name: String,
     pub image_url: String,
-    pub xp: usize,
     pub model: String,
     pub model_url: String,
     pub sfx_set: usize,
@@ -110,6 +119,7 @@ pub struct Nas1Token {
     pub steps_per_thought: usize,
     pub traits: Vec<String>,
     pub extra: HashMap<String, Nas1Value>,
+    pub game_props: HashMap<Principal, Nas1TokenGameProps>,
 }
 
 #[derive(Clone, CandidType, Serialize, Deserialize)]
@@ -143,4 +153,11 @@ impl Default for Nas1Collection {
             sfx_sets: vec![],
         }
     }
+}
+
+#[derive(Clone, CandidType, Serialize, Deserialize)]
+pub struct Nas1UpdatePropsArg {
+    pub token_id: u128,
+    pub game_canister_id: Principal,
+    pub game_props: Nas1TokenGameDeltaProps,
 }
