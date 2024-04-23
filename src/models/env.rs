@@ -14,7 +14,7 @@ use crate::models::game::GameMapId;
 #[cfg(feature = "js")]
 use super::js_renderer::JsRenderer;
 
-pub type EnvObs = Vec<f32>;
+pub type EnvObs = HashMap<String, Vec<f32>>;
 pub type EnvAction = usize;
 
 #[cfg(not(feature = "js"))]
@@ -26,6 +26,7 @@ pub struct EnvPlayerOptions {
 
 pub struct EnvPlayer {
     pub active: bool,
+    pub skill: String,
     pub reward: f32,
     pub obs: EnvObs,
 }
@@ -47,12 +48,14 @@ pub trait Env<ES> {
     
     #[cfg(not(feature = "js"))]
     fn get_num_actions(
-        &self
+        &self,
+        skill: &str
     ) -> usize;
     
     #[cfg(not(feature = "js"))]
     fn get_num_obs(
-        &self
+        &self,
+        skill: &str
     ) -> usize;
     
     #[cfg(not(feature = "js"))]
@@ -80,7 +83,8 @@ pub trait Env<ES> {
     
     #[cfg(not(feature = "js"))]
     fn random_action(
-        &mut self, 
+        &mut self,
+        skill: &str, 
         rng: &mut StdRng
     ) -> EnvAction;
     

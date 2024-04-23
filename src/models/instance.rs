@@ -16,11 +16,12 @@ pub type InstanceOptions = HashMap<String, String>;
 #[derive(Clone, Serialize, Deserialize, CandidType)]
 pub struct InstancePlayerState {
     pub active: bool,
+    pub skill: String,
     pub last_thought: usize,
     pub score: f32,
     pub health: f32,
     pub xp: f32,
-    pub obs: Vec<f32>,
+    pub obs: HashMap<String, Vec<f32>>,
 }
 
 #[derive(Clone, Serialize, Deserialize, CandidType)]
