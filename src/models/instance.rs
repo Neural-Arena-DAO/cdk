@@ -19,7 +19,7 @@ pub struct InstancePlayerState {
     pub last_thought: usize,
     pub score: f32,
     pub health: f32,
-    pub xp: u32,
+    pub xp: f32,
     pub obs: Vec<f32>,
 }
 
@@ -55,7 +55,7 @@ pub struct InstanceStep {
 pub struct InstancePlayerEntity {
     pub health: f32,
     pub score: f32,
-    pub xp: u32,
+    pub xp: f32,
 }
 
 #[cfg_attr(feature = "js", wasm_bindgen)]

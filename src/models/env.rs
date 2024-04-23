@@ -21,7 +21,7 @@ pub type EnvAction = usize;
 pub struct EnvPlayerOptions {
     pub radius: f32,
     pub height: f32,
-    pub xp: u32,
+    pub xp: f32,
 }
 
 pub struct EnvPlayer {

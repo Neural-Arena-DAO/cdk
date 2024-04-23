@@ -2,6 +2,10 @@ use std::collections::HashMap;
 use candid::{CandidType, Principal};
 use serde::{Deserialize, Serialize};
 
+pub const MIN_XP: f32 = 0.0;
+pub const MAX_XP: f32 = 100.0;
+pub const MIN_GAME_PROPS_DELTA: f32 = 0.1;
+
 #[derive(Clone, CandidType, Serialize, Deserialize)]
 pub enum Nas1Value {
     Nat(u128),
@@ -96,12 +100,12 @@ impl Nas1Value {
 
 #[derive(Clone, CandidType, Serialize, Deserialize)]
 pub struct Nas1TokenGameProps {
-    pub xp: u32,
+    pub xp: f32,
 }
 
 #[derive(Clone, CandidType, Serialize, Deserialize)]
 pub struct Nas1TokenGameDeltaProps {
-    pub delta_xp: i32,
+    pub delta_xp: f32,
 }
 
 #[derive(Clone, CandidType, Serialize, Deserialize)]
