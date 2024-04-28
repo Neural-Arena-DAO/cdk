@@ -18,6 +18,7 @@ pub type EnvObs = HashMap<String, Vec<f32>>;
 pub type EnvAction = usize;
 
 #[cfg(not(feature = "js"))]
+#[derive(Clone)]
 pub struct EnvPlayerOptions {
     pub radius: f32,
     pub height: f32,
