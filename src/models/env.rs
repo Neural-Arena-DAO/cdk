@@ -1,4 +1,3 @@
-#[cfg(not(feature = "js"))]
 use std::collections::HashMap;
 #[cfg(not(feature = "js"))]
 use rand::rngs::StdRng;
